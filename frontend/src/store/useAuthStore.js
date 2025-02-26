@@ -14,10 +14,17 @@ export const useAuthStore = create((set, get) => ({
   onlineUsers: [],
   socket: null,
 
+  
   checkAuth: async () => {
     try {
-      const res = await axiosInstance.get("/auth/check");
-
+      const token = localStorage.getItem("token"); // Get token from storage
+  
+      const res = await axiosInstance.get("/auth/check", {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+        },
+      });
+  
       set({ authUser: res.data });
       get().connectSocket();
     } catch (error) {
@@ -27,6 +34,7 @@ export const useAuthStore = create((set, get) => ({
       set({ isCheckingAuth: false });
     }
   },
+  
 
   signup: async (data) => {
     set({ isSigningUp: true });

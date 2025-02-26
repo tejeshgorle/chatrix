@@ -1,6 +1,7 @@
-import { THEMES } from "../constants";
+import { THEMES } from "../constants/index.js";
 import { useThemeStore } from "../store/useThemeStore";
 import { Send } from "lucide-react";
+import { useEffect } from "react";
 
 const PREVIEW_MESSAGES = [
   { id: 1, content: "Hey! How's it going?", isSent: false },
@@ -9,6 +10,10 @@ const PREVIEW_MESSAGES = [
 
 const SettingsPage = () => {
   const { theme, setTheme } = useThemeStore();
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   return (
     <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
@@ -26,7 +31,9 @@ const SettingsPage = () => {
                 group flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors
                 ${theme === t ? "bg-base-200" : "hover:bg-base-200/50"}
               `}
-              onClick={() => setTheme(t)}
+              onClick={() => {
+                console.log("Applying theme:", t); // Debugging
+                setTheme(t)}}
             >
               <div className="relative h-8 w-full rounded-md overflow-hidden" data-theme={t}>
                 <div className="absolute inset-0 grid grid-cols-4 gap-px p-1">
