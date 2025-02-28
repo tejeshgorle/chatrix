@@ -1,3 +1,12 @@
+**COMPANY** : CODTECH IT SOLUTIONS
+**NAME** : TEJESH GORLE
+**INTERN ID** : CT12KMU
+**DOMAIN** : FULL STACK DEVELOPMENT
+**BATCH DURATION** : JAN 10,2025 TO MARCH 10, 2025
+**MENTOR NAME** : NEELA SANTHOSH
+
+
+
 # 💬 Real-Time Chat App (Like WhatsApp) 🚀
 
 This is a **real-time chat application** built with the **MERN stack**, featuring **Socket.io** for real-time messaging, **JWT authentication**, and a sleek UI with **TailwindCSS + DaisyUI**.
